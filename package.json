@@ -1,0 +1,32 @@
+{
+  "name": "typescript-nodejs-starer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && npx tsc",
+    "prestart": "npm run build",
+    "start": "node cross-env NODE_ENV=prod ./dist/server.js",
+    "dev": "nodemon cross-env NODE_ENV=dev ts-node ./src/server.ts",
+    "local": "nodemon cross-env NODE_ENV=local ts-node ./src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "rimraf": "^6.0.1",
+    "tsconfig-paths": "^4.2.0",
+    "winston": "^3.13.1"
+  }
+}
