@@ -14,10 +14,10 @@ const startServer = async () => {
       logger.info(`APP IS RUNNING ON PORT ---> [${PORT}]`);
     });
 
+    // catch application error here...
     process.on("uncaughtException", (error) => {
       logger.error("Uncaught Exception thrown:", error);
-      // Application specific logging, throwing an error, or other logic here
-      process.exit(1); // Exit process with failure
+      process.exit(1); 
     });
     // process.on("uncaughtExceptionMonitor", () => {});
     process.on("unhandledRejection", (reason, promise) => {

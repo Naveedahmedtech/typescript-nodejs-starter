@@ -6,7 +6,6 @@ export const requestLogger = (
   res: Response,
   next: NextFunction
 ) => {
-  console.table(`Request method: ${req.method} || Request origin: ${req.url}`);
   logger.info(`${req.method} ${req.url}`);
   next();
 };
