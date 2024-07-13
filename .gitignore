@@ -3,3 +3,5 @@ node_modules
 .env.stage
 .env.dev
 .vscode
+combined.log
+error.log
