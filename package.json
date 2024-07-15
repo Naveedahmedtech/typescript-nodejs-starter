@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express-session": "^1.18.0",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
@@ -25,6 +26,9 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "helmet": "^7.1.0",
+    "limiter": "^2.1.0",
     "rimraf": "^6.0.1",
     "tsconfig-paths": "^4.2.0",
     "winston": "^3.13.1"
