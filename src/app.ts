@@ -4,14 +4,18 @@ import express, { app } from "@/config/express.config";
 import { requestLogger } from "@/middlewares/requestLogger";
 import { notFoundHandler } from "@/middlewares/notFountHandler";
 import { errorHandler } from "@/middlewares/errorHandler";
-
 import { rateLimiterMiddleware } from "@/middlewares/rateLimit";
+
 // ** routes
 import routes from "@/routes";
 
 // ** external libraries
 import helmet from "helmet";
 import session from "express-session";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import csurf from "csurf";
 import { sessionHandler } from "./middlewares/sessionHandler";
 
 export const createApp = () => {
@@ -20,6 +24,10 @@ export const createApp = () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static("public"));
   app.use(helmet());
+  app.use(compression());
+  app.use(cookieParser());
+  app.use(cors());
+  app.use(csurf({ cookie: true }));
   app.disable("x-powered-by");
   app.set("trust proxy", 1);
   app.use(sessionHandler);
