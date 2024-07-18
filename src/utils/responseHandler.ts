@@ -44,6 +44,9 @@ export const sendErrorResponse = (
     case 422:
       code = RESPONSE_CODES.UNPROCESSABLE_ENTITY;
       break;
+    case 429:
+      code = RESPONSE_CODES.TO_MANY_REQUESTS;
+      break;
     case 201:
       code = RESPONSE_CODES.CREATED;
       break;
