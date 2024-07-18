@@ -11,11 +11,9 @@ import routes from "@/routes";
 
 // ** external libraries
 import helmet from "helmet";
-import session from "express-session";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import csurf from "csurf";
 import { sessionHandler } from "./middlewares/sessionHandler";
 
 export const createApp = () => {
@@ -27,12 +25,11 @@ export const createApp = () => {
   app.use(compression());
   app.use(cookieParser());
   app.use(cors());
-  app.use(csurf({ cookie: true }));
   app.disable("x-powered-by");
   app.set("trust proxy", 1);
-  app.use(sessionHandler);
+  // app.use(sessionHandler);
   app.use(rateLimiterMiddleware);
-  app.use("/api", routes);
+  app.use("/api/v1", routes);
   app.use(notFoundHandler);
   app.use(errorHandler);
   return app;

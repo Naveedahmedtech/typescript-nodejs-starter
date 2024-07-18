@@ -1,3 +1,5 @@
+// TODO: API KEY
+
 import { loadEnv } from "@/config";
 import { createApp } from "@/app";
 import logger from "@/utils/logger";
@@ -17,7 +19,7 @@ const startServer = async () => {
     // catch application error here...
     process.on("uncaughtException", (error) => {
       logger.error("Uncaught Exception thrown:", error);
-      process.exit(1); 
+      process.exit(1);
     });
     // process.on("uncaughtExceptionMonitor", () => {});
     process.on("unhandledRejection", (reason, promise) => {

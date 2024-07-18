@@ -12,14 +12,18 @@ export const errorHandler = (
   const statusCode = err instanceof CustomError ? err.statusCode : 500;
   const message =
     err instanceof CustomError ? err.message : "INTERNAL SERVER ERROR!";
-  
+
   logger.error(message, { statusCode, stack: err.stack });
 
   const response = {
     status: statusCode,
     message,
-    ...(process.env.NODE_ENV !== "prod" && { stack: err.stack }),
+    ...(process.env.NODE_ENV !== "prod" && {}),
   };
+  let stack = err.stack;
+  if (process.env.NODE_ENV === "prod") {
+    stack = "";
+  }
 
-  sendErrorResponse(res, message, statusCode, err.stack);
+  sendErrorResponse(res, message, statusCode, stack);
 };

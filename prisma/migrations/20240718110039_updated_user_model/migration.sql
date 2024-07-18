@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "role" TEXT DEFAULT 'USER',
+ALTER COLUMN "isActivated" DROP NOT NULL,
+ALTER COLUMN "deletedAT" DROP NOT NULL;

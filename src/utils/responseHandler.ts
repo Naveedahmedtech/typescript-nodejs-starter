@@ -21,7 +21,8 @@ export const sendErrorResponse = (
   res: Response,
   message: string,
   statusCode = 500,
-  stack: string | null = null
+  stack: string | null = null,
+  errors: string[] = []
 ) => {
   let code: string;
 
@@ -67,12 +68,14 @@ export const sendErrorResponse = (
     statusCode: number;
     message: string;
     success: boolean;
+    errors?: string[];
     stack?: string | null;
   } = {
     success: false,
     statusCode,
     code,
     message,
+    errors,
   };
 
   if (process.env.NODE_ENV !== "prod" && stack) {
